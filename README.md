@@ -3,9 +3,7 @@
 A lightweight, self-service automation portal that allows teams to easily Start and Stop AWS EC2 sandbox environments to eliminate unnecessary cloud spend.
 
 ## 📸 Interface Preview
-<img width="1901" height="1059" alt="dashboard" src="https://github.com/user-attachments/assets/09b71354-d250-47de-bd1f-23e1c3533250" />
-
-
+<img width="1902" height="1121" alt="Screenshot 2026-05-20 114323" src="https://github.com/user-attachments/assets/34491e4e-d338-4844-9610-71c18efa19cc" />
 
 
 ## 🛠️ Features & Architecture
