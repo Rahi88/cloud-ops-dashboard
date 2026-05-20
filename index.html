@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Self-Service Automation Portal</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            text-align: center; 
+            margin-top: 80px; 
+            background-color: #f4f6f9; 
+            color: #333;
+        }
+        .card { 
+            background: white; 
+            padding: 40px; 
+            border-radius: 10px; 
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1); 
+            display: inline-block; 
+            max-width: 500px;
+        }
+        h2 { color: #2c3e50; margin-bottom: 10px; }
+        p { color: #7f8c8d; font-size: 14px; margin-bottom: 30px; }
+        .btn-container { display: flex; gap: 20px; justify-content: center; }
+        button { 
+            color: white; 
+            border: none; 
+            padding: 15px 30px; 
+            font-size: 16px; 
+            font-weight: bold;
+            border-radius: 5px; 
+            cursor: pointer; 
+            transition: background 0.2s ease; 
+        }
+        .btn-start { background-color: #2ecc71; }
+        .btn-start:hover { background-color: #27ae60; }
+        .btn-stop { background-color: #e74c3c; }
+        .btn-stop:hover { background-color: #c0392b; }
+        #status-message { margin-top: 25px; font-weight: bold; font-size: 15px; }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <h2>DevOps Self-Service Portal</h2>
+        <p>Manage your isolated cloud environments instantly. Control your active Ubuntu sandbox instance status below.</p>
+        
+        <div class="btn-container">
+            <button class="btn-start" onclick="manageServer('start-server')">Start Server</button>
+            <button class="btn-stop" onclick="manageServer('stop-server')">Stop Server</button>
+        </div>
+        
+        <div id="status-message"></div>
+    </div>
+
+    <script>
+        async function manageServer(action) {
+            const statusDiv = document.getElementById('status-message');
+            statusDiv.style.color = '#7f8c8d';
+            statusDiv.innerText = `Sending request to ${action}...`;
+
+            try {
+                // Dinamically routes to either /start-server or /stop-server based on the button clicked
+                const response = await fetch(`http://localhost:5000/${action}`, { 
+                    method: 'POST' 
+                });
+                const data = await response.json();
+                
+                if (response.ok) {
+                    statusDiv.style.color = '#27ae60';
+                    statusDiv.innerText = "Success: " + data.message;
+                } else {
+                    statusDiv.style.color = '#c0392b';
+                    statusDiv.innerText = "Error: " + data.message;
+                }
+            } catch (error) {
+                statusDiv.style.color = '#c0392b';
+                statusDiv.innerText = "Could not connect to the backend automation script!";
+            }
+        }
+    </script>
+
+</body>
+</html>
