@@ -27,4 +27,4 @@ A lightweight, self-service automation portal that allows teams to easily Start 
    
 3.  **Run the backend API:**
    ```bash
-   python app.py
+    python app.py
