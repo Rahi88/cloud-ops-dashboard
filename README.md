@@ -20,8 +20,8 @@ A lightweight, self-service automation portal that allows teams to easily Start 
    pip install flask flask-cors boto3
 2. **Set your AWS credentials in your terminal**
    ```bash
-   pip install flask flask-cors boto3
-   
+   set AWS_ACCESS_KEY_ID=your_actual_access_key_here
+   set AWS_SECRET_ACCESS_KEY=your_actual_secret_key_here
 3.  **Run the backend API:**
    ```bash
     python app.py
