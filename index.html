@@ -35,8 +35,10 @@
         }
         .btn-start { background-color: #2ecc71; }
         .btn-start:hover { background-color: #27ae60; }
-        .btn-stop { background-color: #e74c3c; }
-        .btn-stop:hover { background-color: #c0392b; }
+        .btn-stop { background-color: #c2e73c; }
+        .btn-stop:hover { background-color: #87c02b; }
+        .btn-terminate { background-color: #e74c3c; }
+        .btn-terminate:hover { background-color: #c0392b; }
         #status-message { margin-top: 25px; font-weight: bold; font-size: 15px; }
     </style>
 </head>
@@ -49,6 +51,7 @@
         <div class="btn-container">
             <button class="btn-start" onclick="manageServer('start-server')">Start Server</button>
             <button class="btn-stop" onclick="manageServer('stop-server')">Stop Server</button>
+            <button class="btn-terminate" onclick="manageServer('terminate-server')">terminate Server</button>
         </div>
         
         <div id="status-message"></div>
